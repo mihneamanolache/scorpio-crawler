@@ -17,7 +17,6 @@ Scorpio is intended for educational purposes only. The author is not responsible
     - URL Harvester: Collects inbound and outbound links from a webpage.
 
 ## Usage
-
 To execute all modules against a target URL:
 
 ```ts
@@ -25,15 +24,23 @@ import Scorpio from './src/Scorpio';
 
 const scorpio: Scorpio = new Scorpio();
 
-(async () => {
-    await scorpio.attack('https://example.com');
+void (async () => {
+    try {
+        await scorpio.attack('https://example.com');
+    } catch { /* Hndle error */ }
 })();
 
 console.log(scopio.results);
 ```
 
-## Modules
+## Debugging
+You can enable debug logging by setting the `DEBUG` environment variable to `scorpio:*`:
 
+```sh
+DEBUG=scorpio* bun run examples/base.ts                                                                 
+```
+
+## Modules
 Scorpio modules are designed to be easily extendable. Scopripo come packaged with a few predefined modules, but you can create your own by extending the `Module` class.
 
 ### Predefined Modules
@@ -64,6 +71,5 @@ import Scorpio from './src/Scorpio';
 import CustomModule from './CustomModule';
 
 const scorpio: Scorpio = new Scorpio();
-scorpio.use(CustomModule);
+scorpio.use(CustomModule());
 ```
-
