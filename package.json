@@ -1,0 +1,24 @@
+{
+  "name": "scorpio-crawler",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@eslint-community/eslint-plugin-eslint-comments": "^4.4.1",
+    "@types/bun": "latest",
+    "@types/debug": "^4.1.12",
+    "@types/node": "^22.10.2",
+    "devtools-protocol": "^0.0.1395251",
+    "eslint": "^9.16.0",
+    "eslint-config-prettier": "^9.1.0",
+    "playwright-core": "^1.49.1",
+    "supports-color": "^9.4.0",
+    "typescript-eslint": "^8.18.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "debug": "^4.4.0",
+    "playwright": "1.44"
+  }
+}
