@@ -1,5 +1,5 @@
 import ScorpioModule from "../ScorpioModule";
-import type { Dialog, ElementHandle, Page } from "playwright";
+import type { BrowserContext, Dialog, ElementHandle, Page } from "playwright";
 
 /**
  * Interface to define the structure of XSS data collected during testing.
@@ -54,6 +54,10 @@ class BaseXssModule extends ScorpioModule {
                     continue;
                 }
                 for (const payload of this._Payloads) {
+                    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+                    if (this.result.positive) {
+                        break;
+                    }
                     this._XssData.element = await input.evaluate((el: HTMLInputElement): string => el.outerHTML);
                     this._XssData.url = page.url();
                     this._XssData.payload = payload;

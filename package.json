@@ -19,6 +19,6 @@
   },
   "dependencies": {
     "debug": "^4.4.0",
-    "playwright": "1.44"
+    "playwright": "1.49"
   }
 }

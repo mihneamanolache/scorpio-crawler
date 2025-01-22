@@ -5,6 +5,7 @@ import type ScorpioModule from "./ScorpioModule";
 import type { IModuleResult } from "./Scorpio.types";
 import SslCertificateModule from "./modules/SslCertificateModule";
 import UrlHarvester from "./modules/UrlHarvesterModule";
+import BaseSqliModule from "./modules/BaseSqliModule";
 
 /**
  * Main class for the Scorpio penetration testing framework.
@@ -44,7 +45,8 @@ export default class Scorpio {
         this.modules = [
             BaseXssModule(),
             SslCertificateModule(),
-            UrlHarvester()
+            UrlHarvester(),
+            BaseSqliModule()
         ];
     }
 
@@ -90,7 +92,7 @@ export default class Scorpio {
     protected async launch(): Promise<void> {
         try {
             const browser: Browser = await chromium.launch({
-                headless: true
+                headless: false
             });
             const context: BrowserContext = await browser.newContext();
             this._Page = await context.newPage();
